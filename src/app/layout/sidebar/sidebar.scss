@@ -1,0 +1,23 @@
+:host, .sidebar {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    max-height: 100dvh;
+    overflow: auto;
+
+    .nav-link {
+        display: block;
+        padding: 0.5rem 0;
+        opacity: 0.85;
+
+        &.active,
+        &:hover {
+        opacity: 1;
+        font-weight: 600;
+        }
+    }
+}
+
