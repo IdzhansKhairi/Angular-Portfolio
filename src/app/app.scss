@@ -1,5 +1,9 @@
 .side-bar {
     max-width: fit-content;
+    position: sticky;
+    top: 0; /* stays at the top when scrolling */
+    height: 100vh; /* full height */
+    overflow-y: auto; /* optional: scroll if sidebar content is long */
 }
 
 .container-web-size {
