@@ -2,8 +2,45 @@
     max-width: fit-content;
     position: sticky;
     top: 0; /* stays at the top when scrolling */
-    height: 100vh; /* full height */
-    overflow-y: auto; /* optional: scroll if sidebar content is long */
+    height: 100dvh; /* full height */
+    // overflow-y: auto; /* optional: scroll if sidebar content is long */
+    background-color: #fff; /* ensures sidebar overlays clearly on mobile */
+    z-index: 1050; /* above main content when open on mobile */
+
+    /* Mobile hidden by default */
+    @media (max-width: 767.98px) {
+        position: fixed;
+        top: 0;
+        left: -250px; /* hide sidebar initially */
+        width: 250px;
+        height: 100vh;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+
+        &.open {
+            left: 0; /* slide in when open */
+        }
+    }
+}
+
+.sidebar-toggle-btn {
+    position: fixed;   // floating above everything
+    top: 10px;         // distance from top
+    left: 10px;        // left side of the screen
+    z-index: 1200;     // above sidebar and content
+
+}
+
+@media (max-width: 767.98px) {
+  .mobile-top-margin {
+    margin-top: 75px;
+  }
+}
+
+@media (min-width: 768px) {
+    .sidebar-toggle-btn {
+        display: none; // hide on desktop
+    }
 }
 
 .container-web-size {
