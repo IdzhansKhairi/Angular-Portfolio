@@ -36,10 +36,10 @@ export class Contact {
 
     // Use EmailJS to send
     emailjs.send(
-      'IdzhansKhairi01',
-      'template_o9q0emj',     // replace with your EmailJS template ID
+      'IdzhansKhairi01',      // Service ID
+      'template_o9q0emj',     // Template ID
       templateParams,
-      '6vxXqmnPcfgZNASHK'
+      '6vxXqmnPcfgZNASHK'     // Public Endpoint
     ).then((response) => {
         console.log('SUCCESS!', response.status, response.text);
         Swal.fire({
