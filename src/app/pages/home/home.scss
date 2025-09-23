@@ -65,6 +65,12 @@
   }
 }
 
+@media (max-width: 767.98px) {
+  .mobile-top-margin {
+    margin-top: 75px;
+  }
+}
+
 /* Rotate the chevron when the collapse is shown */
 a[data-bs-toggle="collapse"] .bi-chevron-down {
   transition: transform 0.3s;
