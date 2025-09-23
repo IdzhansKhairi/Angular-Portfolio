@@ -8,15 +8,21 @@
     <div class="row-extend d-flex">
 
         <!-- Sidebar -->
-        <div class="col-auto side-bar" [class.open]="sidebarOpen" (clickoutside)="sidebarOpen = false">
+        <div class="col-auto side-bar" [class.open]="sidebarOpen">
             <app-sidebar></app-sidebar>
         </div>
-        
-        <div class="col p-3">
-            <div>
-                <router-outlet></router-outlet>
-            </div>
+
+        <div 
+            class="overlay" 
+            *ngIf="sidebarOpen" 
+            (click)="sidebarOpen = false">
         </div>
+        
+        <div class="col p-3 content-container">
+            <router-outlet></router-outlet>
+        </div>
+
+
     </div>
 </div>
 
