@@ -31,7 +31,7 @@
 
                             <div class="contact-info d-flex align-items-center justify-content-between mt-3">
                                 <input type="email" class="contact-form form-control me-2" name="senderEmail" id="senderEmail" placeholder="*Your Email Address" [(ngModel)]="senderEmail" required email #email="ngModel" required [ngClass]="{'is-invalid': email.invalid && (email.dirty || email.touched)}">
-                                <input type="tel" class="contact-form contact-form-2 form-control ms-2" name="senderPhone" id="senderPhone" placeholder="Your Phone Number (Optional)">
+                                <input type="tel" class="contact-form contact-form-2 form-control ms-2" name="senderPhone" id="senderPhone" placeholder="Your Phone Number (Optional)" [(ngModel)]="senderPhone" #phone="ngModel">
                             </div>
                             
                             <select class="form-select mt-3" name="senderTopic" id="senderTopic" [(ngModel)]="senderTopic" required>
@@ -56,9 +56,9 @@
                                 <!-- Dummy Button -->
                                 <!-- <button type="submit" class="btn btn-primary mt-3" disabled>Submit</button> -->
                             </div>
-                            <div class="mt-2 text-end">
+                            <!-- <div class="mt-2 text-end">
                                 <h5 class="text-danger small">In production. Button disabled to avoid spam</h5>
-                            </div>
+                            </div> -->
                             
                         </div>
                     </form>

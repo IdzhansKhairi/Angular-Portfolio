@@ -21,6 +21,16 @@ export class Contact {
   emailContent =''
   
   sendEmail(contactForm: NgForm) {
+    
+    // Loading the whole page
+    Swal.fire({
+      title: 'Loading...',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    })
+
     if (contactForm.invalid) return;
 
     const templateParams = {
@@ -33,7 +43,6 @@ export class Contact {
       time: new Date().toLocaleString()
     };
 
-
     // Use EmailJS to send
     emailjs.send(
       'IdzhansKhairi01',      // Service ID
@@ -41,13 +50,18 @@ export class Contact {
       templateParams,
       '6vxXqmnPcfgZNASHK'     // Public Endpoint
     ).then((response) => {
+        Swal.close();
         console.log('SUCCESS!', response.status, response.text);
         Swal.fire({
           icon: 'success',
           title: 'Email Sent!',
           text: 'Your message has been sent successfully.'
         });
-        contactForm.resetForm();  // optional: reset the form after success
+
+        // Reset Form
+        contactForm.resetForm(); 
+        this.senderTopic = ''
+
     }, (error) => {
         console.log('FAILED...', error);
         Swal.fire({
