@@ -15,8 +15,8 @@
 
 // When it changed to phone size
 @media (max-width: 768px) {
-  .personal-image img {
-    height: 200px;     /* smaller height on mobile */
+  .personal-image {
+    width: 200px;     /* smaller height on mobile */
   }
   .about-me {
     padding: 0 !important;
@@ -47,6 +47,11 @@
     padding-bottom: 0 !important;
     padding-right: 0 !important;
     padding-left: 0 !important;
+  }
+
+  .r-card-padding {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
 }
