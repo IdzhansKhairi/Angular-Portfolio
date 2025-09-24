@@ -1,57 +1,66 @@
-.side-bar {
-    max-width: fit-content;
-    position: sticky;
-    top: 0; /* stays at the top when scrolling */
-    height: 100dvh; /* full height */
-    // overflow-y: auto; /* optional: scroll if sidebar content is long */
-    background-color: #fff; /* ensures sidebar overlays clearly on mobile */
-    z-index: 1050; /* above main content when open on mobile */
-
-    /* Mobile hidden by default */
-    @media (max-width: 767.98px) {
-        position: fixed;
-        top: 0;
-        left: -250px; /* hide sidebar initially */
-        width: 250px;
-        height: 100vh;
-        transition: left 0.3s ease;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
-
-        &.open {
-            left: 0; /* slide in when open */
-        }
-    }
-}
-
-.sidebar-toggle-btn {
-    position: fixed;   // floating above everything
-    top: 10px;         // distance from top
-    left: 10px;        // left side of the screen
-    z-index: 1200;     // above sidebar and content
-
-}
-
-@media (min-width: 768px) {
-    .sidebar-toggle-btn {
-        display: none; // hide on desktop
-    }
-}
-
+/* Keep Bootstrap container full width */
 .container-web-size {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .row-extend {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: nowrap; // keep sidebar + content side by side on desktop
 }
 
+/* Sidebar */
+.side-bar {
+  max-width: fit-content;
+  position: sticky;
+  top: 0;
+  height: 100dvh;           // dynamic viewport to reduce mobile bar jumps
+  background-color: #fff;
+  z-index: 1050;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 767.98px) {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100dvh;
+    transition: left 0.3s ease;
+    will-change: left;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.25);
+
+    &.open { left: 0; }
+  }
+}
+
+/* Overlay */
 .overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(0,0,0,0.5); // semi-transparent black
-  z-index: 1000; // above main content but below sidebar toggle button
+  inset: 0;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000; // below sidebar (1050) and toggle (1200)
 }
+
+/* Toggle button */
+.sidebar-toggle-btn {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1200;
+}
+
+@media (min-width: 768px) {
+  .sidebar-toggle-btn { display: none; }
+}
+
+/* Main content */
+.content-container {
+  min-width: 0;
+  @media (max-width: 767.98px) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
