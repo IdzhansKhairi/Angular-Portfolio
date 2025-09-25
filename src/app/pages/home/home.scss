@@ -102,3 +102,7 @@ a[data-bs-toggle="collapse"] .bi-chevron-down {
 a[data-bs-toggle="collapse"]:not(.collapsed) .bi-chevron-down {
   transform: rotate(180deg); /* upside down */
 }
+
+.nav-tabs .nav-link.active {
+  font-weight: bold;
+}

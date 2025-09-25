@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-resume',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './resume.scss'
 })
 export class Resume {
+  
+  clickDownload() {
+    Swal.fire({
+      title: 'Downloaded successfully!',
+      icon: "success",
+    })
+  }
 
 }
